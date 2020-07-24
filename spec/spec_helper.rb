@@ -1,4 +1,12 @@
 require "bundler/setup"
+
+if ENV.fetch('COVERAGE', false)
+  require 'simplecov'
+  SimpleCov.start do
+    add_filter "/spec/"
+  end
+end
+
 require "interpretr"
 
 RSpec.configure do |config|
